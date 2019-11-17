@@ -11,7 +11,7 @@ module.exports = function(grunt) {
                 exitCode: [0, 255]
             },
             server: {
-                command: "php -S 192.168.0.5:8043",
+                command: "php -S localhost:8043",
                 cwd: "public"
             },
         }
