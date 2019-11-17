@@ -14,18 +14,18 @@ $config ['production']['db']['engine'] ='mysql';
 
 $config ['staging']= array();
 $config ['staging']['db'] = array();
-$config ['staging']['db']['host'] ='localhost';
-$config ['staging']['db']['name'] ='omegasol_omega_framework';
-$config ['staging']['db']['user'] ='omegasol_admin';
-$config ['staging']['db']['password'] ='admin.2008';
+$config ['staging']['db']['host'] ='medvaucatolica.com';
+$config ['staging']['db']['name'] ='medva';
+$config ['staging']['db']['user'] ='omegasol';
+$config ['staging']['db']['password'] ='admin.2008*';
 $config ['staging']['db']['port'] ='3306';
 $config ['staging']['db']['engine'] ='mysql';
 
 $config ['development']= array();
 $config ['development']['db'] = array();
-$config ['development']['db']['host'] ='localhost';
-$config ['development']['db']['name'] ='martin';
-$config ['development']['db']['user'] ='admin';
+$config ['development']['db']['host'] ='medvaucatolica.com';
+$config ['development']['db']['name'] ='medva';
+$config ['development']['db']['user'] ='omegasol';
 $config ['development']['db']['password'] = 'admin.2008*';
 $config ['development']['db']['port'] ='3306';
 $config ['development']['db']['engine'] ='mysql';
