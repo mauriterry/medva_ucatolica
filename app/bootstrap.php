@@ -49,7 +49,7 @@ spl_autoload_register('framework_autoload');
 
 include(APP_PATH.'/../vendor/autoload.php');
 $env = "development";
-if(strpos($_SERVER['HTTP_HOST'],"frameworkomega.omegasolucionesweb.com") !== false){
+if(strpos($_SERVER['HTTP_HOST'],"medvaucatolica.com") !== false){
     $env = "staging";
 } else if(strpos($_SERVER['HTTP_HOST'],"url produccion sin http ni www") !== false){
     $env = "production";
