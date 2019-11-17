@@ -25,8 +25,8 @@ $config ['development']= array();
 $config ['development']['db'] = array();
 $config ['development']['db']['host'] ='localhost';
 $config ['development']['db']['name'] ='medva';
-$config ['development']['db']['user'] ='omegasol';
-$config ['development']['db']['password'] = 'admin.2008*';
+$config ['development']['db']['user'] ='root';
+$config ['development']['db']['password'] = '';
 $config ['development']['db']['port'] ='3306';
 $config ['development']['db']['engine'] ='mysql';
 
