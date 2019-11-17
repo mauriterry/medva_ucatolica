@@ -1,37 +1,14 @@
-## Welcome to GitHub Pages
+         ___        ______     ____ _                 _  ___  
+        / \ \      / / ___|   / ___| | ___  _   _  __| |/ _ \ 
+       / _ \ \ /\ / /\___ \  | |   | |/ _ \| | | |/ _` | (_) |
+      / ___ \ V  V /  ___) | | |___| | (_) | |_| | (_| |\__, |
+     /_/   \_\_/\_/  |____/   \____|_|\___/ \__,_|\__,_|  /_/ 
+ ----------------------------------------------------------------- 
 
-You can use the [editor on GitHub](https://github.com/mauriterry/medva_ucatolica/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Hi there! Welcome to AWS Cloud9!
 
-### Markdown
+To get started, create some files, play with the terminal,
+or visit https://docs.aws.amazon.com/console/cloud9/ for our documentation.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/mauriterry/medva_ucatolica/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Happy coding!
