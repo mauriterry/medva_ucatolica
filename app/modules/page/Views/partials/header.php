@@ -69,36 +69,11 @@
 				<div class="col-sm-5">
 					<nav>
 						<ul>
-							<li><a href="#"><span>Quiénes Somos <i class="fas fa-angle-down"></i></span></a>
-								<ul>
-									<li><a href="/page/nosotros#24">¿Quiénes Somos?</a></li>
-									<li><a href="/page/nosotros#26">Misión</a></li>
-									<li><a href="/page/nosotros#28">Visión</a></li>
-									<li><a href="/page/nosotros#50">Aviso de Privacidad</a></li>
-									<li><a href="/page/nosotros#52">Responsabilidades en el Cumplimiento de SARLAFT</a></li>
-									<li><a href="/page/nosotros#117">Preguntas Frecuentes</a></li>
-									<li><a href="/page/tratamientodedatos">Política de Tratamiento de Datos</a></li>
-									<li><a href="#">Preguntas Frecuentes</a></li>
-								</ul>
-							</li>
+							<li><a href="/page/sede4"><span>Sede 4</span></a></li>
 							<div class="linea">|</div>
-							<li><a href="#"><span>Servicios <i class="fas fa-angle-down"></i></span></a>
-								<ul>
-									<li><a href="/page/creditos">Créditos</a></li>
-									<li><a href="/page/ahorro">Ahorros</a></li>
-									<li><a href="/page/bienestarsocial">Fondos de Bienestar Social</a></li>
-									<li><a href="/page/servicios#116">Curso de Economía Solidaria</a></li>
-								</ul>
-							</li>
+							<li><a href="/page/carrera13"><span>Sede Carrera 13</span></a></li>
 							<div class="linea">|</div>
-							<li><a href="#"><span>Reglamentos y Formatos <i class="fas fa-angle-down"></i></span></a>
-								<ul>
-									<li><a href="/page/reglamentos">Reglamentos</a></li>
-									<li><a href="/page/formatos">Formatos</a></li>
-									<li><a href="/page/circulares">Circulares Asambleas</a></li>
-									<li><a href="/page/circularesinformativas">Circulares Informativas</a></li>
-								</ul>
-							</li>
+							<li><a href="/page/claustro"><span>Sede Claustro</span></a></li>
 						</ul>
 					</nav>
 				</div>
@@ -108,9 +83,9 @@
 				<div class="col-sm-5">
 					<nav>
 						<ul>
-							<li><a href="/page/convenios"><span>Convenios</span></a></li>
+							<li><a href="/page/lastorres"><span>Sede las torres</span></a></li>
 							<div class="linea">|</div>
-							<li><a href="/page/galeria/login"><span>Galería</span></a></li>
+							<li><a href="/page/nosotros"><span>Nosotros</span></a></li>
 							<div class="linea">|</div>
 							<li><a href="/page/contactenos"><span>Contáctenos</span></a></li>
 						</ul>
