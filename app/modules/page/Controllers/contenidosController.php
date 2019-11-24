@@ -9,8 +9,8 @@ class Page_contenidosController extends Page_mainController
 
 	public function indexAction()
 	{
-      $contenidoModel = new Page_Model_DbTable_Contenido();
-			$this->_view->contenidos =  $contenidoModel->getList(" contenido_seccion = '2'","orden ASC");
+      	$contenidoModel = new Page_Model_DbTable_Contenido();
+		$this->_view->contenidos =  $contenidoModel->getList(" contenido_seccion = '2'","orden ASC");
     }
 	
 		public function detalleAction()

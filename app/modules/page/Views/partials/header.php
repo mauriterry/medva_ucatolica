@@ -37,11 +37,6 @@
 							<i class="fab fa-youtube"></i>
 						</a>
 					<?php } ?>
-					<?php if($this->infopage->info_pagina_linkdn) {?>
-						<a href="<?php echo $this->infopage->info_pagina_linkdn ?>" target="_blank" class="red">
-							<i class="fab fa-linkedin-in"></i>
-						</a>
-					<?php } ?>
 					<?php if($this->infopage->info_pagina_google) {?>
 						<a href="<?php echo $this->infopage->info_pagina_google ?>" target="_blank" class="red">
 							<i class="fab fa-google-plus-g"></i>
