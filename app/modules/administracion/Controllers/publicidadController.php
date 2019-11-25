@@ -279,6 +279,7 @@ class Administracion_publicidadController extends Administracion_mainController
 		$array['1'] = 'Home';
 		$array['2'] = 'Botones Flotantes';
 		$array['3'] = 'Pop-up';
+		$array['4'] = 'Datos';
 		return $array;
 	}
 

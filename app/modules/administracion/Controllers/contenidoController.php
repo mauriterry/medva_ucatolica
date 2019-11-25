@@ -379,6 +379,7 @@ class Administracion_contenidoController extends Administracion_mainController
 		$array['1'] = 'Home';
 		$array['2'] = 'Sedes';
 		$array['3'] = 'Nosotros';
+		$array['4'] = 'Datos';
 		return $array;
 	}
 

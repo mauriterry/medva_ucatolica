@@ -479,7 +479,7 @@ footer .correos {
     font-size: 40px;
 }
 
-.titulo-principal::before {
+.titulo2-principal::before {
     position: absolute;
     content: "";
     width: 335px;
@@ -493,7 +493,7 @@ footer .correos {
     padding-bottom: 30px;
 }
 
-.titulo-principal {
+.titulo2-principal {
     color: #01214b;
     font-size: 40px;
     display: block;

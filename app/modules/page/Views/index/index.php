@@ -1,7 +1,7 @@
 <?php echo $this->bannerprincipal; ?>
 <div class="padding-content" >
     <div class="container">
-        <h2 class="titulo-principal">Nuestras Sedes</h2>
+        <h2 class="titulo2-principal">Nuestras Sedes</h2>
         <div>
             <div id='carouselservicios'>
                 <div class='left_scroll'><i class="fas fa-chevron-circle-left"></i></div>

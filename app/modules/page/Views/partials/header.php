@@ -64,11 +64,9 @@
 				<div class="col-sm-5">
 					<nav>
 						<ul>
-							<li><a href="/page/sede4"><span>Sede 4</span></a></li>
-							<div class="linea">|</div>
-							<li><a href="/page/carrera13"><span>Sede Carrera 13</span></a></li>
-							<div class="linea">|</div>
-							<li><a href="/page/claustro"><span>Sede Claustro</span></a></li>
+							<li><a href="/page/sedes"><span>Sedes</span></a></li>
+							<!-- <div class="linea">|</div>
+							<li><a href="/page/datos"><span>Datos Recolectados</span></a></li> -->
 						</ul>
 					</nav>
 				</div>
@@ -78,11 +76,9 @@
 				<div class="col-sm-5">
 					<nav>
 						<ul>
-							<li><a href="/page/lastorres"><span>Sede las torres</span></a></li>
-							<div class="linea">|</div>
 							<li><a href="/page/nosotros"><span>Nosotros</span></a></li>
-							<div class="linea">|</div>
-							<li><a href="/page/contactenos"><span>Contáctenos</span></a></li>
+							<!-- <div class="linea">|</div>
+							<li><a href="/page/contactenos"><span>Contáctenos</span></a></li> -->
 						</ul>
 					</nav>
 				</div>
