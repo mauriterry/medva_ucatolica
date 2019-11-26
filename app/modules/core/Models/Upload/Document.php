@@ -12,7 +12,7 @@ class Core_Model_Upload_Document
             print_r($_FILES[$document]["error"]);
         } else {
             $permitidos = array("application/pdf", "application/xls", "application/doc", "application/docx", "application/vnd.ms-excel", "application/msword","application/octet-stream","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-            $limite_kb = 100000;
+            $limite_kb = 1000000;
             if (in_array($_FILES[$document]['type'], $permitidos) && $_FILES[$document]['size'] <= $limite_kb * 1024) {
                 $filename = ''.pathinfo($_FILES[$document]['name'], PATHINFO_FILENAME);
                 $filename = $this->clearName($filename);
