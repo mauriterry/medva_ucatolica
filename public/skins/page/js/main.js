@@ -4,7 +4,7 @@ $(document).ready(function() {
     $(".carouselsection").carousel({
         quantity: 1,
         sizes: {
-            '900': 3,
+            '900': 2,
             '500': 1
         }
     });

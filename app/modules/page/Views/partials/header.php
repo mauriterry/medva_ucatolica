@@ -76,6 +76,8 @@
 				<div class="col-sm-5">
 					<nav>
 						<ul>
+							<li><a href="/page/graficas"><span>Graficas</span></a></li>
+							<div class="linea">|</div>
 							<li><a href="/page/nosotros"><span>Nosotros</span></a></li>
 							<!-- <div class="linea">|</div>
 							<li><a href="/page/contactenos"><span>Contáctenos</span></a></li> -->

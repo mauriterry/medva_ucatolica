@@ -8,6 +8,8 @@
 	<link rel="stylesheet" type="text/css" href="/scripts/carousel/carousel.css">
 	<link rel="stylesheet" href="/components/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/skins/page/css/global.css">
+	<link rel="stylesheet" href="/components/chart.js/dist/Chart.css">
+	<script src="/components/chart.js/dist/Chart.js"></script>
 	<link rel="shortcut icon" href="/favicon.ico">
 	<script type="text/javascript" id="www-widgetapi-script" src="https://s.ytimg.com/yts/jsbin/www-widgetapi-vflS50iB-/www-widgetapi.js" async=""></script>
 
