@@ -479,6 +479,20 @@ footer .correos {
     font-size: 40px;
 }
 
+#carouselsect {
+    position: relative;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+#carouselsect .left_scroll {
+    position: absolute;
+    top: 48%;
+    left: 0;
+    color: #01214b;
+    font-size: 40px;
+}
+
 .titulo2-principal::before {
     position: absolute;
     content: "";
@@ -508,6 +522,14 @@ footer .correos {
     background: #FFFFFF;
     display: block;
     text-align: center;
+}
+
+#carouselsect .right_scroll {
+    position: absolute;
+    top: 48%;
+    color: #01214b;
+    font-size: 40px;
+    right: 0;
 }
 
 #carouselservicios .right_scroll {
