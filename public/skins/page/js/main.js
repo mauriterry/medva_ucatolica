@@ -9,8 +9,8 @@ $(document).ready(function() {
         }
     });
     $("#carouselsect").carouselomega({
-        auto: "false",
-        quantity: 2,
+        auto: "true",
+        quantity: 1,
         sizes: {
             '900': 2,
             '500': 1
