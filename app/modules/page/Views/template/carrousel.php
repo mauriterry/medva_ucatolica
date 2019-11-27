@@ -8,7 +8,7 @@
                     <ul>
 						<?php $colorfondo = $columna->contenido_fondo_color; ?>
 						<?php foreach ($carrousel as $key => $contenido): ?>
-							<li>
+							<li style="width: 343.333px;">
 								<?php include($disenio); ?>
 							</li>
 						<?php endforeach ?>
