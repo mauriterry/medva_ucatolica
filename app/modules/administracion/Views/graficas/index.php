@@ -1,6 +1,6 @@
 <h1 class="titulo-principal"><i class="fas fa-cogs"></i> <?php echo $this->titlesection; ?></h1>
 <div class="container-fluid">
-	<form action="<?php echo $this->route; ?>" method="post">
+	<form action="<?php echo $this->route; ?><?php if($this->padre){ echo "?padre=".$this->padre; } ?>" method="post">
         <div class="content-dashboard">
             <div class="row">
 				<div class="col-3">
@@ -23,12 +23,17 @@
 		        </div>
 				<div class="col-3">
 		            <label>Estado</label>
-		            <label class="input-group">
-							<div class="input-group-prepend">
-								<span class="input-group-text input-icono fondo-rosado " ><i class="fas fa-pencil-alt"></i></span>
-							</div>
-		            <input type="text" class="form-control" name="grafica_estado" value="<?php echo $this->getObjectVariable($this->filters, 'grafica_estado') ?>"></input>
-		            </label>
+					<label class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text input-icono fondo-verde " ><i class="far fa-list-alt"></i></span>
+						</div>
+	                    <select class="form-control" name="grafica_estado">
+	                        <option value="">Todas</option>
+	                        <?php foreach ($this->list_grafica_estado as $key => $value) : ?>
+	                            <option value="<?= $key; ?>" <?php if ($this->getObjectVariable($this->filters, 'grafica_estado') ==  $key) { echo "selected";} ?>><?= $value; ?></option>
+	                        <?php endforeach ?>
+	                    </select>
+	               </label>
 		        </div>
                 <div class="col-3">
                     <label>&nbsp;</label>
@@ -78,7 +83,7 @@
 		    		</select>
 		    	</div>
 		    	<div class="col-3">
-		    		<div class="text-right"><a class="btn btn-sm btn-success" href="<?php echo $this->route."\manage"; ?>"> <i class="fas fa-plus-square"></i> Crear Nuevo</a></div>
+					<div class="text-right"><a class="btn btn-sm btn-success" href="<?php echo $this->route."\manage"; ?><?php if($this->padre){ echo "?padre=".$this->padre; } ?>"> <i class="fas fa-plus-square"></i> Crear Nuevo</a></div>
 		    	</div>
 		    </div>
 	    </div>
@@ -87,10 +92,10 @@
 			<thead>
 				<tr>
 					<td>Nombre</td>
-					<td>Valor</td>
+					<td>Tipo</td>
 					<td>Estado</td>
 					<td width="100">Orden</td>
-					<td width="100"></td>
+					<td width="150"></td>
 				</tr>
 			</thead>
 			<tbody>
@@ -98,8 +103,8 @@
 				<?php $id =  $content->grafica_id; ?>
 					<tr>
 						<td><?=$content->grafica_nombre;?></td>
-						<td><?=$content->grafica_valor;?></td>
-						<td><?=$content->grafica_estado;?></td>
+						<td><?= $this->list_grafica_tipo[$content->grafica_tipo];?>
+						<td><?= $this->list_grafica_estado[$content->grafica_estado];?>
 						<td>
 							<input type="hidden" id="<?= $id; ?>" value="<?= $content->orden; ?>"></input>
 							<button class="up_table btn btn-primary btn-sm"><i class="fas fa-angle-up"></i></button>
@@ -107,6 +112,9 @@
 						</td>
 						<td class="text-right">
 							<div>
+								<?php if($content->grafica_padre == 0  || $content->grafica_tipo != 0 ){ ?>
+									<a class="btn btn-rosado btn-sm" href="<?php echo $this->route;?>?padre=<?= $id ?>" data-toggle="tooltip" data-placement="top" title="interna"><i class="fas fa-plus-square"></i></a>
+								<?php } ?>
 								<a class="btn btn-azul btn-sm" href="<?php echo $this->route;?>/manage?id=<?= $id ?>" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-pen-alt"></i></a>
 								<span data-toggle="tooltip" data-placement="top" title="Eliminar"><a class="btn btn-rojo btn-sm" data-toggle="modal" data-target="#modal<?= $id ?>"  ><i class="fas fa-trash-alt" ></i></a></span>
 							</div>

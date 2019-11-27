@@ -1,7 +1,7 @@
 <div class="titulo-internas1" style="background-image:url(/skins/page/images/fondo1.jpg)">
     <div align="center"><h2>Graficas</h2></div>
 </div>
-<canvas id="myChart" width="50" height="50"></canvas>
+<canvas id="myChart" style=" width: 500px; height: 500px;"></canvas>
 <script>
 	var ctx = document.getElementById('myChart');
 	var myChart = new Chart(ctx, {

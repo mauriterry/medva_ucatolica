@@ -50,15 +50,25 @@
 						<div class="help-block with-errors"></div>
 					</div>
 				<?php } ?>
-				<?php if( $padre == 0 ){ ?>
-					<div class="col-4 form-group">
-						<label for="grafica_nombre"  class="control-label">Estado</label>
-						<label class="input-group">
-							<input type="checkbox" name="grafica_estado" value="1" class="form-control switch-form " <?php if ($this->getObjectVariable($this->content, 'grafica_estado') == 1) { echo "checked";} ?>  required ></input>
-						</label>
-						<div class="help-block with-errors"></div>
-					</div>
-				<?php } ?>
+				<div class="col-4 form-group">
+					<label for="grafica_nombre"  class="control-label">Estado</label>
+					<label class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text input-icono  fondo-azul-claro "><i class="far fa-list-alt"></i></span>
+                        </div>
+                        <select class="form-control" name="grafica_estado">
+                            <option value="">Seleccione...</option>
+                            <?php foreach ($this->list_grafica_estado AS $key => $value ){?>
+                            <option <?php if($this->getObjectVariable($this->content,"grafica_estado") == $key ){
+                                echo "selected"; }?> value="
+                                <?php echo $key; ?>" />
+                                <?= $value; ?>
+                            </option>
+                            <?php } ?>
+                        </select>
+                    </label>
+					<div class="help-block with-errors"></div>
+				</div>
 			</div>
 		</div>
 		<div class="botones-acciones">

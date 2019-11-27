@@ -1,8 +1,9 @@
 var videos = [];
 $(document).ready(function() {
     $('.dropdown-toggle').dropdown();
-    $(".carouselsection").carousel({
-        quantity: 1,
+    $(".carouselsection").carouselomega({
+        auto: "false",
+        quantity: 2,
         sizes: {
             '900': 2,
             '500': 1

@@ -100,6 +100,9 @@ class Administracion_graficasController extends Administracion_mainController
 		$this->_view->page = $page;
 		$this->_view->lists = $this->mainModel->getListPages($filters,$order,$start,$amount);
 		$this->_view->csrf_section = $this->_csrf_section;
+		$this->_view->padre = $this->_getSanitizedParam("padre");
+		$this->_view->list_grafica_tipo = $this->getGraficatipo();
+		$this->_view->list_grafica_estado = $this->getGraficaestado();
 	}
 
 	/**
@@ -115,6 +118,8 @@ class Administracion_graficasController extends Administracion_mainController
 		$this->_view->csrf_section = $this->_csrf_section;
 		$this->_view->csrf = Session::getInstance()->get('csrf')[$this->_csrf_section];
 		$this->_view->list_grafica_tipo = $this->getGraficatipo();
+		$this->_view->list_grafica_estado = $this->getGraficaestado();
+		$padre = $this->_getSanitizedParam("padre");
 		$id = $this->_getSanitizedParam("id");
 		if ($id > 0) {
 			$content = $this->mainModel->getById($id);
@@ -124,6 +129,7 @@ class Administracion_graficasController extends Administracion_mainController
 				$title = "Actualizar Grafica";
 				$this->getLayout()->setTitle($title);
 				$this->_view->titlesection = $title;
+				$padre = $content->grafica_padre;
 			}else{
 				$this->_view->routeform = $this->route."/insert";
 				$title = "Crear Grafica";
@@ -136,6 +142,7 @@ class Administracion_graficasController extends Administracion_mainController
 			$this->getLayout()->setTitle($title);
 			$this->_view->titlesection = $title;
 		}
+		$this->_view->padre = $padre;
 	}
 
 	/**
@@ -156,7 +163,12 @@ class Administracion_graficasController extends Administracion_mainController
 			$logModel = new Administracion_Model_DbTable_Log();
 			$logModel->insert($data);
 		}
-		header('Location: '.$this->route.''.'');
+		$rutaadicional = "";
+		$padre = $this->_getSanitizedParam("grafica_padre");
+		if($padre > 0 ){
+			$rutaadicional = "?padre=".$padre;
+		}
+		header('Location: '.$this->route.$rutaadicional);
 	}
 
 	/**
@@ -178,8 +190,14 @@ class Administracion_graficasController extends Administracion_mainController
 			$data['log_log'] = print_r($data,true);
 			$data['log_tipo'] = 'EDITAR GRAFICA';
 			$logModel = new Administracion_Model_DbTable_Log();
-			$logModel->insert($data);}
-		header('Location: '.$this->route.''.'');
+			$logModel->insert($data);
+		}
+		$rutaadicional = "";
+		$padre = $this->_getSanitizedParam("grafica_padre");
+		if($padre > 0 ){
+			$rutaadicional = "?padre=".$padre;
+		}
+		header('Location: '.$this->route.$rutaadicional);
 	}
 
 	/**
@@ -203,7 +221,12 @@ class Administracion_graficasController extends Administracion_mainController
 					$logModel->insert($data); }
 			}
 		}
-		header('Location: '.$this->route.''.'');
+		$rutaadicional = "";
+		$padre = $this->_getSanitizedParam("grafica_padre");
+		if($padre > 0 ){
+			$rutaadicional = "?padre=".$padre;
+		}
+		header('Location: '.$this->route.$rutaadicional);
 	}
 
 	/**
@@ -219,7 +242,11 @@ class Administracion_graficasController extends Administracion_mainController
 		} else {
 			$data['grafica_tipo'] = $this->_getSanitizedParam("grafica_tipo");
 		}
-		$data['grafica_padre'] = '0' ;
+		if($this->_getSanitizedParam("grafica_padre") == '' ) {
+			$data['grafica_padre'] = '0';
+		} else {
+			$data['grafica_padre'] = $this->_getSanitizedParam("grafica_padre");
+		}
 		$data['grafica_nombre'] = $this->_getSanitizedParam("grafica_nombre");
 		if($this->_getSanitizedParam("grafica_valor") == '' ) {
 			$data['grafica_valor'] = '0';
@@ -257,13 +284,12 @@ class Administracion_graficasController extends Administracion_mainController
      */
     protected function getFilter()
     {
-    	$filtros = " 1 = 1 ";
+    	$filtros = " 1 = 1 "; 
+		$padre = $this->_getSanitizedParam('padre');
+		$filtros = $filtros." AND grafica_padre = '$padre' ";
         if (Session::getInstance()->get($this->namefilter)!="") {
             $filters =(object)Session::getInstance()->get($this->namefilter);
-            if ($filters->grafica_padre != '') {
-                $filtros = $filtros." AND grafica_padre LIKE '%".$filters->grafica_padre."%'";
-            }
-            if ($filters->grafica_nombre != '') {
+            if ($filters->grafica_nombre != '' && $padre!='') {
                 $filtros = $filtros." AND grafica_nombre LIKE '%".$filters->grafica_nombre."%'";
             }
             if ($filters->grafica_valor != '') {
@@ -274,7 +300,20 @@ class Administracion_graficasController extends Administracion_mainController
             }
 		}
         return $filtros;
-    }
+	}
+	
+	/**
+     * Genera los valores del campo Estado.
+     *
+     * @return array cadena con los valores del campo Estado.
+     */
+	private function getGraficaestado()
+	{
+		$array = array();
+		$array['1'] = 'Activo';
+		$array['2'] = 'Inactivo';
+		return $array;
+	}
 
     /**
      * Recibe y asigna los filtros de este controlador
@@ -286,7 +325,6 @@ class Administracion_graficasController extends Administracion_mainController
         if ($this->getRequest()->isPost()== true) {
         	Session::getInstance()->set($this->namepageactual,1);
             $parramsfilter = array();
-					$parramsfilter['grafica_padre'] =  $this->_getSanitizedParam("grafica_padre");
 					$parramsfilter['grafica_nombre'] =  $this->_getSanitizedParam("grafica_nombre");
 					$parramsfilter['grafica_valor'] =  $this->_getSanitizedParam("grafica_valor");
 					$parramsfilter['grafica_estado'] =  $this->_getSanitizedParam("grafica_estado");Session::getInstance()->set($this->namefilter, $parramsfilter);
