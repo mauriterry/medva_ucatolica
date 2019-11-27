@@ -10,7 +10,7 @@ $(document).ready(function() {
     });
     $("#carouselsect").carouselomega({
         auto: "true",
-        quantity: 1,
+        quantity: 2,
         sizes: {
             '900': 2,
             '500': 1
