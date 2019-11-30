@@ -1,6 +1,6 @@
 <h1 class="titulo-principal"><i class="fas fa-cogs"></i> <?php echo $this->titlesection; ?></h1>
 <div class="container-fluid">
-	<form action="<?php echo $this->route; ?><?php if($this->padre){ echo "?padre=".$this->padre; } ?>" method="post">
+	<form action="<?php echo $this->route; ?><?php if($this->padre){ echo "?padre=".$this->padre; echo "&padre2=".$this->padre2; } ?>" method="post">
         <div class="content-dashboard">
             <div class="row">
 				<div class="col-3">
@@ -83,7 +83,7 @@
 		    		</select>
 		    	</div>
 		    	<div class="col-3">
-					<div class="text-right"><a class="btn btn-sm btn-success" href="<?php echo $this->route."\manage"; ?><?php if($this->padre){ echo "?padre=".$this->padre; } ?>"> <i class="fas fa-plus-square"></i> Crear Nuevo</a></div>
+					<div class="text-right"><a class="btn btn-sm btn-success" href="<?php echo $this->route."\manage"; ?><?php if($this->padre ){ echo "?padre=".$this->padre; } ?>"> <i class="fas fa-plus-square"></i> Crear Nuevo</a></div>
 		    	</div>
 		    </div>
 	    </div>
@@ -92,7 +92,15 @@
 			<thead>
 				<tr>
 					<td>Nombre</td>
-					<td>Tipo</td>
+					<?php if($this->padre > 0){ ?>
+						<?php if($this->padre > $this->padre2 ){ ?>
+							<td>Valor</td> 
+						<?php }else{ ?>
+							<td>Lado</td>
+						<?php } ?>
+					<?php }else{ ?>
+						<td>Tipo</td>
+					<?php } ?>					
 					<td>Estado</td>
 					<td width="100">Orden</td>
 					<td width="150"></td>
@@ -103,7 +111,15 @@
 				<?php $id =  $content->grafica_id; ?>
 					<tr>
 						<td><?=$content->grafica_nombre;?></td>
-						<td><?= $this->list_grafica_tipo[$content->grafica_tipo];?>
+						<?php if($this->padre > 0){ ?>
+							<?php if($this->padre > $this->padre2 && $content->grafica_lado == 0){ ?>
+								<td><?=$content->grafica_valor;?></td> 
+							<?php }else{ ?>
+								<td><?= $this->list_grafica_lado[$content->grafica_lado];?>
+							<?php } ?>
+						<?php }else{ ?>
+							<td><?= $this->list_grafica_tipo[$content->grafica_tipo];?>
+						<?php } ?>	
 						<td><?= $this->list_grafica_estado[$content->grafica_estado];?>
 						<td>
 							<input type="hidden" id="<?= $id; ?>" value="<?= $content->orden; ?>"></input>
@@ -112,9 +128,9 @@
 						</td>
 						<td class="text-right">
 							<div>
-								<?php if($content->grafica_padre == 0  || $content->grafica_tipo != 0 ){ ?>
+								<?php if($content->grafica_tipo != 0 || $content->grafica_lado != 0 ){ ?>
 									<a class="btn btn-rosado btn-sm" href="<?php echo $this->route;?>?padre=<?= $id ?>" data-toggle="tooltip" data-placement="top" title="interna"><i class="fas fa-plus-square"></i></a>
-								<?php } ?>
+								<?php } ?>	
 								<a class="btn btn-azul btn-sm" href="<?php echo $this->route;?>/manage?id=<?= $id ?>" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-pen-alt"></i></a>
 								<span data-toggle="tooltip" data-placement="top" title="Eliminar"><a class="btn btn-rojo btn-sm" data-toggle="modal" data-target="#modal<?= $id ?>"  ><i class="fas fa-trash-alt" ></i></a></span>
 							</div>

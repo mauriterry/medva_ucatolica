@@ -101,7 +101,9 @@ class Administracion_graficasController extends Administracion_mainController
 		$this->_view->lists = $this->mainModel->getListPages($filters,$order,$start,$amount);
 		$this->_view->csrf_section = $this->_csrf_section;
 		$this->_view->padre = $this->_getSanitizedParam("padre");
+		$this->_view->padre2 = $this->getPadre2($this->_getSanitizedParam("padre"));		
 		$this->_view->list_grafica_tipo = $this->getGraficatipo();
+		$this->_view->list_grafica_lado = $this->getGraficalado();
 		$this->_view->list_grafica_estado = $this->getGraficaestado();
 	}
 
@@ -118,7 +120,9 @@ class Administracion_graficasController extends Administracion_mainController
 		$this->_view->csrf_section = $this->_csrf_section;
 		$this->_view->csrf = Session::getInstance()->get('csrf')[$this->_csrf_section];
 		$this->_view->list_grafica_tipo = $this->getGraficatipo();
+		$this->_view->list_grafica_lado = $this->getGraficalado();
 		$this->_view->list_grafica_estado = $this->getGraficaestado();
+		$padre2 = $this->getPadre2($this->_getSanitizedParam("padre"));
 		$padre = $this->_getSanitizedParam("padre");
 		$id = $this->_getSanitizedParam("id");
 		if ($id > 0) {
@@ -143,6 +147,7 @@ class Administracion_graficasController extends Administracion_mainController
 			$this->_view->titlesection = $title;
 		}
 		$this->_view->padre = $padre;
+		$this->_view->padre2 = $padre2;
 	}
 
 	/**
@@ -165,8 +170,13 @@ class Administracion_graficasController extends Administracion_mainController
 		}
 		$rutaadicional = "";
 		$padre = $this->_getSanitizedParam("grafica_padre");
+		$padre2 = $this->getPadre2($this->_getSanitizedParam("grafica_padre"));
 		if($padre > 0 ){
-			$rutaadicional = "?padre=".$padre;
+			if($padre > $padre2 ){
+				$rutaadicional = "?padre=".$padre."&padre2=".$padre2;;
+			}else{
+				$rutaadicional = "?padre=".$padre;
+			}
 		}
 		header('Location: '.$this->route.$rutaadicional);
 	}
@@ -242,6 +252,11 @@ class Administracion_graficasController extends Administracion_mainController
 		} else {
 			$data['grafica_tipo'] = $this->_getSanitizedParam("grafica_tipo");
 		}
+		if($this->_getSanitizedParam("grafica_lado") == '' ) {
+			$data['grafica_lado'] = '0';
+		} else {
+			$data['grafica_lado'] = $this->_getSanitizedParam("grafica_lado");
+		}
 		if($this->_getSanitizedParam("grafica_padre") == '' ) {
 			$data['grafica_padre'] = '0';
 		} else {
@@ -278,6 +293,40 @@ class Administracion_graficasController extends Administracion_mainController
 	}
 
 	/**
+	* Genera los valores del campo grafica_tipo.
+	*
+	* @return array cadena con los valores del campo grafica_tipo.
+	*/
+	private function getGraficalado()
+	{
+		$modelData = new Administracion_Model_DbTable_Dependladograficas();
+		$data = $modelData->getList();
+		$array = array();
+		foreach ($data as $key => $value) {
+			$array[$value->id] = $value->nombre;
+		}
+		return $array;
+	}
+
+
+	/**
+	* Genera los valores del campo grafica_tipo.
+	*
+	* @return array cadena con los valores del campo grafica_tipo.
+	*/
+	private function getPadre2($id)
+	{
+		$data = $this->mainModel->getList("grafica_id = ".$id,"orden ASC");
+		$contador = 0;
+		$padre2 = 0;
+		foreach ($data as $key => $value) {
+			$padre2 = $value->grafica_padre;
+		}
+		return $padre2;
+	}
+	
+
+	/**
      * Genera la consulta con los filtros de este controlador.
      *
      * @return array cadena con los filtros que se van a asignar a la base de datos
@@ -288,13 +337,19 @@ class Administracion_graficasController extends Administracion_mainController
 		$padre = $this->_getSanitizedParam('padre');
 		$filtros = $filtros." AND grafica_padre = '$padre' ";
         if (Session::getInstance()->get($this->namefilter)!="") {
-            $filters =(object)Session::getInstance()->get($this->namefilter);
+			$filters =(object)Session::getInstance()->get($this->namefilter);
+			if ($filters->grafica_tipo != '') {
+                $filtros = $filtros." AND grafica_tipo LIKE '%".$filters->grafica_tipo."%'";
+			}
+			if ($filters->grafica_lado != '') {
+                $filtros = $filtros." AND grafica_lado LIKE '%".$filters->grafica_lado."%'";
+            }
             if ($filters->grafica_nombre != '' && $padre!='') {
                 $filtros = $filtros." AND grafica_nombre LIKE '%".$filters->grafica_nombre."%'";
             }
             if ($filters->grafica_valor != '') {
                 $filtros = $filtros." AND grafica_valor LIKE '%".$filters->grafica_valor."%'";
-            }
+			}
             if ($filters->grafica_estado != '') {
                 $filtros = $filtros." AND grafica_estado LIKE '%".$filters->grafica_estado."%'";
             }
@@ -324,10 +379,13 @@ class Administracion_graficasController extends Administracion_mainController
     {
         if ($this->getRequest()->isPost()== true) {
         	Session::getInstance()->set($this->namepageactual,1);
-            $parramsfilter = array();
-					$parramsfilter['grafica_nombre'] =  $this->_getSanitizedParam("grafica_nombre");
-					$parramsfilter['grafica_valor'] =  $this->_getSanitizedParam("grafica_valor");
-					$parramsfilter['grafica_estado'] =  $this->_getSanitizedParam("grafica_estado");Session::getInstance()->set($this->namefilter, $parramsfilter);
+			$parramsfilter = array();
+			$parramsfilter['grafica_tipo'] =  $this->_getSanitizedParam("grafica_tipo");
+			$parramsfilter['grafica_lado'] =  $this->_getSanitizedParam("grafica_lado");
+			$parramsfilter['grafica_nombre'] =  $this->_getSanitizedParam("grafica_nombre");
+			$parramsfilter['grafica_valor'] =  $this->_getSanitizedParam("grafica_valor");
+			$parramsfilter['grafica_estado'] =  $this->_getSanitizedParam("grafica_estado");
+			Session::getInstance()->set($this->namefilter, $parramsfilter);
         }
         if ($this->_getSanitizedParam("cleanfilter") == 1) {
             Session::getInstance()->set($this->namefilter, '');

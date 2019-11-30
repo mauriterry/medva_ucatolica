@@ -23,11 +23,12 @@ class Administracion_Model_DbTable_Graficas extends Db_Table
 	 */
 	public function insert($data){
 		$grafica_tipo = $data['grafica_tipo'];
+		$grafica_lado = $data['grafica_lado'];
 		$grafica_padre = $data['grafica_padre'];
 		$grafica_nombre = $data['grafica_nombre'];
 		$grafica_valor = $data['grafica_valor'];
 		$grafica_estado = $data['grafica_estado'];
-		$query = "INSERT INTO grafica( grafica_tipo, grafica_padre, grafica_nombre, grafica_valor, grafica_estado) VALUES ( '$grafica_tipo', '$grafica_padre', '$grafica_nombre', '$grafica_valor', '$grafica_estado')";
+		$query = "INSERT INTO grafica( grafica_tipo, grafica_lado, grafica_padre, grafica_nombre, grafica_valor, grafica_estado) VALUES ( '$grafica_tipo', '$grafica_lado','$grafica_padre', '$grafica_nombre', '$grafica_valor', '$grafica_estado')";
 		$res = $this->_conn->query($query);
         return mysqli_insert_id($this->_conn->getConnection());
 	}
@@ -39,13 +40,13 @@ class Administracion_Model_DbTable_Graficas extends Db_Table
 	 * @return void
 	 */
 	public function update($data,$id){
-		
 		$grafica_tipo = $data['grafica_tipo'];
+		$grafica_tipo = $data['grafica_lado'];
 		$grafica_padre = $data['grafica_padre'];
 		$grafica_nombre = $data['grafica_nombre'];
 		$grafica_valor = $data['grafica_valor'];
 		$grafica_estado = $data['grafica_estado'];
-		$query = "UPDATE grafica SET  grafica_tipo = '$grafica_tipo', grafica_padre = '$grafica_padre', grafica_nombre = '$grafica_nombre', grafica_valor = '$grafica_valor', grafica_estado = '$grafica_estado' WHERE grafica_id = '".$id."'";
+		$query = "UPDATE grafica SET  grafica_tipo = '$grafica_tipo', grafica_lado = '$grafica_lado', grafica_padre = '$grafica_padre', grafica_nombre = '$grafica_nombre', grafica_valor = '$grafica_valor', grafica_estado = '$grafica_estado' WHERE grafica_id = '".$id."'";
 		$res = $this->_conn->query($query);
 	}
 }

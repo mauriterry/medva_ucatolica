@@ -8,11 +8,13 @@ class Page_mainController extends Controllers_Abstract
 {
 
 	public $template;
+	public $templateGraficas;
 
 	public function init()
 	{
 		$this->setLayout('page_page');
 		$this->template = new Page_Model_Template_Template($this->_view);
+		$this->templateGraficas = new Page_Model_Template_templateGraficas($this->_view);
 		$infopageModel = new Page_Model_DbTable_Informacion();
 		$this->_view->infopage = $infopageModel->getById(1);
 		$this->getLayout()->setData("metadescription",$this->_view->infopage->info_pagina_descripcion);
