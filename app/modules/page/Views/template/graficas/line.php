@@ -1,7 +1,7 @@
 <div style="width:50%"  >
 	<canvas id="myChart" height="650" width="600"></canvas>
 </div>
-
+<?php print_r($lados); ?>
 <script>
 	var ctx = document.getElementById('myChart');
 	var myChart = new Chart(ctx, {

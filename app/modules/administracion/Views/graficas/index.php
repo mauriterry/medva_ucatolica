@@ -89,11 +89,14 @@
 	    </div>
 		<div class="content-table">
 		<table class=" table table-striped  table-hover table-administrator text-left">
+			<?php foreach($this->lists as $content){ ?>
+				<?php $lad =  $content->grafica_lado; ?>
+			<?php } ?>
 			<thead>
 				<tr>
 					<td>Nombre</td>
 					<?php if($this->padre > 0){ ?>
-						<?php if($this->padre > $this->padre2 ){ ?>
+						<?php if($this->padre > $this->padre2 & $lad == 0 || $this->padre == $this->padre2  & $lad == 0  ){ ?>
 							<td>Valor</td> 
 						<?php }else{ ?>
 							<td>Lado</td>
@@ -112,7 +115,7 @@
 					<tr>
 						<td><?=$content->grafica_nombre;?></td>
 						<?php if($this->padre > 0){ ?>
-							<?php if($this->padre > $this->padre2 && $content->grafica_lado == 0){ ?>
+							<?php if($this->padre > $this->padre2 && $content->grafica_lado == 0 || $this->padre == $this->padre2  && $content->grafica_lado == 0){ ?>
 								<td><?=$content->grafica_valor;?></td> 
 							<?php }else{ ?>
 								<td><?= $this->list_grafica_lado[$content->grafica_lado];?>

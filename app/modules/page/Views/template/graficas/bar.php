@@ -1,34 +1,47 @@
-<div style="width:50%"  >
+<div style="width:50%">
 	<canvas id="myChart2" height="650" width="600"></canvas>
 </div>
-
 <script>
+    var lados = [<?= json_encode($lados) ?>];
+    var valores = [<?= json_encode($valores) ?>];
+    var ladx = [];
+    var valx = [];
+    var lady = [];
+    var valy = [];
+    for (let index = 0; index < valores.length; index++) {
+        const element = valores[index];
+        for (let index1 = 0; index1 < element.length; index1++) {
+            const element1 = element[index1]; 
+            if(index1 == 1){
+                for (let index2 = 0; index2 < element1.length; index2++) {
+                    const element2 = element1[index2];
+                    ladx.push(element2.grafica_nombre); 
+                    valx.push(element2.grafica_valor);   
+                }   
+            }else{
+                for (let index2 = 0; index2 < element1.length; index2++) {
+                    const element2 = element1[index2];
+                    lady.push(element2.grafica_nombre); 
+                    valy.push(element2.grafica_valor);      
+                }  
+            } 
+        }           
+    }
 	var ctx = document.getElementById('myChart2');
 	var myChart2 = new Chart(ctx, {
-	    type: 'line',
+	    type: 'bar',
 	    data: {
-	        labels: ['0', '1', '2', '3', '4', '5', '6'],
+	        labels: valy,
 	        datasets: [{
-	            label: '# of Votes',
-	            data: [10, 20, 50, 60, 100, 200, 300],
-	            backgroundColor: [
-	                'rgba(255, 99, 132, 0.2)',
-	                'rgba(54, 162, 235, 0.2)',
-	                'rgba(255, 206, 86, 0.2)',
-	                'rgba(75, 192, 192, 0.2)',
-	                'rgba(153, 102, 255, 0.2)',
-	                'rgba(255, 159, 64, 0.2)'
-	            ],
-	            borderColor: [
-	                'rgba(255, 99, 132, 1)',
-	                'rgba(54, 162, 235, 1)',
-	                'rgba(255, 206, 86, 1)',
-	                'rgba(75, 192, 192, 1)',
-	                'rgba(153, 102, 255, 1)',
-	                'rgba(255, 159, 64, 1)'
-	            ],
-	            borderWidth: 1
-	        }]
+                label: lados[0][0].grafica_nombre,
+                fillColor: "rgba(220,220,220,0.2)",
+                strokeColor: "rgba(220,220,220,1)",
+                pointColor: "rgba(220,220,220,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(220,220,220,1)",
+                data: valx
+            }]
 	    },
 	    options: {
 	        scales: {

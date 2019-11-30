@@ -22,7 +22,7 @@
 					<div class="help-block with-errors"></div>
 				</div>
 				<?php if( $padre > 0 ){ ?>
-					<?php if($this->padre > $this->padre2 ){ ?>
+					<?php if($this->padre > $this->padre2 || $this->padre == $this->padre2 ){ ?>
 						<div class="col-4 form-group">
 							<label for="grafica_valor"  class="control-label">Valor</label>
 							<label class="input-group">

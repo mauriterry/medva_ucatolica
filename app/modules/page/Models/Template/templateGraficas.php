@@ -33,7 +33,6 @@ class Page_Model_Template_templateGraficas
 			}
 		}
         $this->_view->graficas = $graficas;
-        
 		return $this->_view->getRoutPHP("modules/page/Views/template/contenedorGraficas.php");
 	}
 }

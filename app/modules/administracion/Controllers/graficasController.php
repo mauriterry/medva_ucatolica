@@ -316,7 +316,7 @@ class Administracion_graficasController extends Administracion_mainController
 	*/
 	private function getPadre2($id)
 	{
-		$data = $this->mainModel->getList("grafica_id = ".$id,"orden ASC");
+		$data = $this->mainModel->getList("grafica_padre = ".$id,"orden ASC");
 		$contador = 0;
 		$padre2 = 0;
 		foreach ($data as $key => $value) {
