@@ -264,19 +264,38 @@ class Administracion_datosController extends Administracion_mainController
 		$data['codigo'] = $this->_getSanitizedParam("codigo");
 		if($this->_getSanitizedParam("valCarbono") == '' ) {
 			$data['valCarbono'] = '0';
+			$data['carbonoV'] = '0' ;
+			$data['rsCarbono'] = '0' ;
+			$data['ppmCarbono'] = '0' ;
 		} else {
 			$data['valCarbono'] = $this->_getSanitizedParam("valCarbono");
+			$data['carbonoV'] = ($this->_getSanitizedParam("valCarbono")/1024)*5 ;
+			$data['rsCarbono'] = ((5 -$this->_getSanitizedParam("valCarbono"))/$this->_getSanitizedParam("valCarbono"))*1 ;
+			$data['ppmCarbono'] = floatval('73,688')*(($this->_getSanitizedParam("valCarbono")/floatval('0,72'))^(floatval('-1,679'))) ;
 		}
 		if($this->_getSanitizedParam("valDioxido") == '' ) {
 			$data['valDioxido'] = '0';
+			$data['dioxidoV'] = '0' ;
+			$data['rsDioxido'] = '0' ;
+			$data['ppmDioxido'] = '0' ;
 		} else {
 			$data['valDioxido'] = $this->_getSanitizedParam("valDioxido");
+			$data['dioxidoV'] = ($this->_getSanitizedParam("valDioxido")/1024)*5 ;
+			$data['rsDioxido'] = ((5 -$this->_getSanitizedParam("valDioxido"))/$this->_getSanitizedParam("valDioxido"))*1 ; 
+			$data['ppmDioxido'] = floatval('73,688')*(($this->_getSanitizedParam("valDioxido")/floatval('0,72'))^(floatval('-1,679'))) ;
 		}
 		if($this->_getSanitizedParam("valOzono") == '' ) {
 			$data['valOzono'] = '0';
+			$data['ozonoV'] = '0' ;
+			$data['rsOzono'] = '0' ;
+			$data['ppmOzono'] = '0' ;
 		} else {
 			$data['valOzono'] = $this->_getSanitizedParam("valOzono");
+			$data['ozonoV'] = ($this->_getSanitizedParam("valOzono")/1024)*5 ;
+			$data['rsOzono'] = ((5 -$this->_getSanitizedParam("valOzono"))/$this->_getSanitizedParam("valOzono"))*1 ;
+			$data['ppmOzono'] = floatval('73,688')*(($this->_getSanitizedParam("valOzono")/floatval('0,72'))^(floatval('-1,679'))) ;
 		}
+				
 		if($this->_getSanitizedParam("dispositivo") == '' ) {
 			$data['dispositivo'] = '0';
 		} else {

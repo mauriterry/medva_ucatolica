@@ -7,7 +7,7 @@
 	                <label>Fecha</label>
 	                <label class="input-group">
 						<div class="input-group-prepend">
-							<span class="input-group-text input-icono  fondo-morado " ><i class="fas fa-calendar-alt"></i></span>
+							<span class="input-group-text input-icono  fondo-cafe " ><i class="fas fa-calendar-alt"></i></span>
 						</div>
 	                <input type="text" class="form-control" name="fecha" value="<?php echo $this->getObjectVariable($this->filters, 'fecha') ?>"></input>
 	                    </label>
@@ -16,7 +16,7 @@
 		            <label>Hora</label>
 		            <label class="input-group">
 							<div class="input-group-prepend">
-								<span class="input-group-text input-icono fondo-azul " ><i class="fas fa-pencil-alt"></i></span>
+								<span class="input-group-text input-icono fondo-verde-claro " ><i class="fas fa-pencil-alt"></i></span>
 							</div>
 		            <input type="text" class="form-control" name="hora" value="<?php echo $this->getObjectVariable($this->filters, 'hora') ?>"></input>
 		            </label>
@@ -25,7 +25,7 @@
 		            <label>Codigo</label>
 		            <label class="input-group">
 							<div class="input-group-prepend">
-								<span class="input-group-text input-icono fondo-azul-claro " ><i class="fas fa-pencil-alt"></i></span>
+								<span class="input-group-text input-icono fondo-azul " ><i class="fas fa-pencil-alt"></i></span>
 							</div>
 		            <input type="text" class="form-control" name="codigo" value="<?php echo $this->getObjectVariable($this->filters, 'codigo') ?>"></input>
 		            </label>
@@ -34,13 +34,13 @@
 		            <label>Valor Carbono</label>
 		            <label class="input-group">
 							<div class="input-group-prepend">
-								<span class="input-group-text input-icono fondo-cafe " ><i class="fas fa-pencil-alt"></i></span>
+								<span class="input-group-text input-icono fondo-verde " ><i class="fas fa-pencil-alt"></i></span>
 							</div>
 		            <input type="text" class="form-control" name="valCarbono" value="<?php echo $this->getObjectVariable($this->filters, 'valCarbono') ?>"></input>
 		            </label>
 		        </div>
 				<div class="col-3">
-		            <label>Valor Di&oacute;xido</label>
+		            <label>Valor Dioxido</label>
 		            <label class="input-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text input-icono fondo-rojo-claro " ><i class="fas fa-pencil-alt"></i></span>
@@ -52,7 +52,7 @@
 		            <label>Valor Ozono</label>
 		            <label class="input-group">
 							<div class="input-group-prepend">
-								<span class="input-group-text input-icono fondo-verde " ><i class="fas fa-pencil-alt"></i></span>
+								<span class="input-group-text input-icono fondo-rosado " ><i class="fas fa-pencil-alt"></i></span>
 							</div>
 		            <input type="text" class="form-control" name="valOzono" value="<?php echo $this->getObjectVariable($this->filters, 'valOzono') ?>"></input>
 		            </label>
@@ -61,7 +61,7 @@
 					<label>Nombre Dispositivo</label>
 	                <label class="input-group">
 						<div class="input-group-prepend">
-							<span class="input-group-text input-icono fondo-rosado " ><i class="far fa-list-alt"></i></span>
+							<span class="input-group-text input-icono fondo-azul-claro " ><i class="far fa-list-alt"></i></span>
 						</div>
 	                    <select class="form-control" name="dispositivo">
 	                        <option value="">Todas</option>
@@ -75,7 +75,7 @@
 					<label>Nombre Sede</label>
 	                <label class="input-group">
 						<div class="input-group-prepend">
-							<span class="input-group-text input-icono fondo-verde-claro " ><i class="far fa-list-alt"></i></span>
+							<span class="input-group-text input-icono fondo-morado " ><i class="far fa-list-alt"></i></span>
 						</div>
 	                    <select class="form-control" name="sede">
 	                        <option value="">Todas</option>
@@ -135,12 +135,6 @@
 		    	<div class="col-3">
 		    		<div class="text-right"><a class="btn btn-sm btn-success" href="<?php echo $this->route."\manage"; ?>"> <i class="fas fa-plus-square"></i> Crear Nuevo</a></div>
 		    	</div>
-			    <div class="col-3">
-			    	<div class="text-right"><a class="btn btn-sm btn-azul" href="<?php echo $this->route."\insertDatos"; ?>"> <i class="fas fa-sync"></i> Actualizar Datos Firebase</a></div>
-			    </div>
-			    <div class="col-4">
-			    	<div class="text-right"><a class="btn btn-sm btn-rojo" href="<?php echo $this->route."\descargarDatos"; ?>"> <i class="fas fa-file-download"></i> Generar Archivo Excel Datos Firebase</a></div>
-			    </div>
 		    </div>
 	    </div>
 		<div class="content-table">
@@ -151,7 +145,7 @@
 					<td>Hora</td>
 					<td>Codigo</td>
 					<td>Valor Carbono</td>
-					<td>Valor Di&oacute;xido</td>
+					<td>Valor Dioxido</td>
 					<td>Valor Ozono</td>
 					<td>Nombre Dispositivo</td>
 					<td>Nombre Sede</td>
