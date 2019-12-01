@@ -1,4 +1,5 @@
 <?php foreach ($this->graficas as $key => $resvalue): ?>
+	<?php $id = $resvalue['id'];  ?>
 	<?php $value = $resvalue['detalle'];  ?>
 	<?php foreach ($resvalue['hijos'] as $key => $resvalue2): ?>
 		<?php $id = $resvalue2['detalle']->grafica_id ; ?>

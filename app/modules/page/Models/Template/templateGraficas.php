@@ -19,7 +19,9 @@ class Page_Model_Template_templateGraficas
 		$regraficas = $graficasModel->getList("grafica_padre = '$id' ","orden ASC");
 		foreach ($regraficas as $key => $value) {
 			$graficas[$key] = [];
+			$graficas[$key]['id'] = $key;
 			$graficas[$key]['detalle'] = $value;
+			$nombreGrafica = $value->grafica_nombre;
 			$padre = $value->grafica_id;
 			$hijos = $graficasModel->getList("grafica_padre = '$padre' ","orden ASC");
 			foreach ($hijos as $key2 => $hijo) {
@@ -32,7 +34,9 @@ class Page_Model_Template_templateGraficas
 				}
 			}
 		}
-        $this->_view->graficas = $graficas;
+		$this->_view->nombreGrafica = $nombreGrafica;
+		$this->_view->graficas = $graficas;
+		
 		return $this->_view->getRoutPHP("modules/page/Views/template/contenedorGraficas.php");
 	}
 }
