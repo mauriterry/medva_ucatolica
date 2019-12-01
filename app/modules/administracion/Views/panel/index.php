@@ -1,5 +1,5 @@
 <div class="container-fluid">
-	<div class="div-dashboard">
+	<!-- <div class="div-dashboard">
 		<h2>
 			<img src="/skins/administracion/images/informaciondecotactenos.png"> Información de Contáctenos <a href="/administracion/informacion/#contactenos"><i class="fas fa-marker"></i></a>
 		</h2>
@@ -125,7 +125,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<div class="div-dashboard">
 		<h2>
 			<img src="/skins/administracion/images/googlemaps.png"> Google Maps <a href="/administracion/informacion/#maps"><i class="fas fa-marker"></i></a>
