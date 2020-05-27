@@ -7,7 +7,7 @@
         }
     ],
     "require": {
-        "phpmailer/phpmailer": "^5.2",
+        "phpmailer/phpmailer": "^6.1",
         "phpunit/phpunit": "^4.8",
         "tecnick.com/tcpdf": "^6.2",
         "phpoffice/phpexcel": "^1.8"
